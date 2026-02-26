@@ -1,0 +1,182 @@
+.cliente-area {
+  min-height: 100vh;
+  padding: 24px;
+  padding-bottom: 180px;
+}
+
+.cliente-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.cliente-logo {
+  max-width: 120px;
+  margin-bottom: 12px;
+}
+
+.cliente-header h1 {
+  font-size: 1.8rem;
+  margin: 0 0 4px 0;
+}
+
+.mesa-info {
+  font-size: 1.1rem;
+  color: var(--cf-orange-light);
+  margin: 8px 0 0 0;
+}
+
+.cliente-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cliente-opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.opcion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  text-align: center;
+}
+
+.opcion-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.opcion-desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+.mesa-mensaje {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.mesas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mesa-btn {
+  min-height: 60px;
+}
+
+.menu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.categoria-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: var(--cf-orange-light);
+}
+
+.platos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.plato-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.plato-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.plato-info {
+  flex: 1;
+}
+
+.plato-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+}
+
+.plato-desc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0 0 8px 0;
+}
+
+.plato-precio {
+  font-weight: 600;
+  color: var(--cf-orange-light);
+  margin: 0 0 8px 0;
+}
+
+.plato-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plato-actions button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.carrito-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.95);
+  border-top: 2px solid var(--cf-orange);
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.carrito-resumen {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.carrito-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cf-btn-llamar {
+  background: linear-gradient(180deg, #ff4444 0%, #cc0000 100%);
+  color: white;
+}
+
+.mesonera-atendiendo {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mesonera-foto {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}

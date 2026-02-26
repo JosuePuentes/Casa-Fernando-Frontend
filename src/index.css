@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+:root {
+  --cf-black: #000000;
+  --cf-white: #FFFFFF;
+  --cf-orange: #FF8C00;
+  --cf-orange-dark: #E67E22;
+  --cf-orange-light: #FFA500;
+  --cf-yellow: #FFD700;
+  --cf-gradient: linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #E67E22 100%);
+  --cf-gradient-text: linear-gradient(180deg, #FFD700 0%, #FF8C00 50%, #CC5500 100%);
+  --cf-font-display: 'Cinzel', Georgia, serif;
+  --cf-font-body: 'Source Sans 3', -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--cf-font-body);
+  background: var(--cf-black);
+  color: var(--cf-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--cf-font-display);
+}
+
+a {
+  color: var(--cf-orange-light);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--cf-yellow);
+}
+
+button {
+  font-family: var(--cf-font-body);
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: var(--cf-font-body);
+}
+
+.cf-btn {
+  background: var(--cf-gradient);
+  color: var(--cf-black);
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cf-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+}
+
+.cf-btn:active {
+  transform: translateY(0);
+}
+
+.cf-btn-outline {
+  background: transparent;
+  color: var(--cf-white);
+  border: 2px solid var(--cf-orange);
+}
+
+.cf-btn-outline:hover {
+  background: rgba(255, 140, 0, 0.2);
+}
+
+.cf-input {
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: var(--cf-white);
+  padding: 12px 16px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.cf-input:focus {
+  outline: none;
+  border-color: var(--cf-orange);
+}
+
+.cf-input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.cf-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.cf-gradient-text {
+  background: var(--cf-gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

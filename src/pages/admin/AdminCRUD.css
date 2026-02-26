@@ -1,0 +1,40 @@
+.admin-crud {
+  min-height: 100vh;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.admin-crud h1 {
+  margin: 24px 0 16px 0;
+}
+
+.crud-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.crud-form input, .crud-form select {
+  max-width: 400px;
+}
+
+.crud-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.crud-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.crud-list li div {
+  display: flex;
+  gap: 8px;
+}

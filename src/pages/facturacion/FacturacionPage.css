@@ -1,0 +1,38 @@
+.facturacion-page {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.fact-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fact-table th, .fact-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.detalle-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  z-index: 100;
+}
+
+.estado-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
