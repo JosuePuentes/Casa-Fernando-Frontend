@@ -21,10 +21,12 @@ export default function ClienteMenu() {
 
   useEffect(() => {
     getMenu()
-      .then(({ data }) => setPlatos(data))
+      .then(({ data }) => setPlatos(Array.isArray(data) ? data : []))
       .catch(() => setError('Error al cargar el menú'))
       .finally(() => setLoading(false));
   }, []);
+
+  const platosDelDia = platos.filter((p) => p.es_plato_del_dia || p.plato_del_dia);
 
   const agregar = (plato) => {
     const idx = carrito.findIndex((c) => c.plato_id === plato.id);
@@ -93,6 +95,7 @@ export default function ClienteMenu() {
 
   const handleLlamarMesonera = async () => {
     if (!mesaId) return;
+    if (navigator.vibrate) navigator.vibrate([100]);
     setLlamando(true);
     try {
       await notificarMesonera(mesaId);
@@ -139,6 +142,23 @@ export default function ClienteMenu() {
         </div>
       )}
 
+      {platosDelDia.length > 0 && (
+        <div className="platos-del-dia-banner cf-card">
+          <h3>🔥 Platos del día</h3>
+          <div className="platos-del-dia-list">
+            {platosDelDia.map((p) => (
+              <span key={p.id} className="plato-dia-badge">{p.nombre}</span>
+            ))}
+          </div>
+        </div>
+      )}
+      {platosDelDia.length === 0 && platos.length > 0 && (
+        <div className="platos-del-dia-banner cf-card">
+          <h3>🔥 Especialidades de la casa</h3>
+          <p>Descubre nuestras parrillas y platos destacados</p>
+        </div>
+      )}
+
       <div className="menu-grid">
         {Object.entries(porCategoria).map(([cat, items]) => (
           <section key={cat} className="categoria-section">
@@ -176,8 +196,9 @@ export default function ClienteMenu() {
               onMouseDown={handleLlamarMesonera}
               onTouchStart={(e) => { e.preventDefault(); handleLlamarMesonera(); }}
               disabled={llamando}
+              title="Mantenga presionado para notificar a la mesonera"
             >
-              {llamando ? '...' : '🔔 Llamar mesonera'}
+              {llamando ? 'Notificado ✓' : '🔔 Llamar mesonera'}
             </button>
           )}
           <button className="cf-btn" onClick={handlePedir} disabled={enviando || carrito.length === 0}>

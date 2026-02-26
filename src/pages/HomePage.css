@@ -6,17 +6,64 @@
   justify-content: center;
   padding: 24px;
   background: var(--cf-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-bg-images {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.home-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.95) 50%, rgba(0,0,0,0.98) 100%);
+  z-index: 1;
+}
+
+.home-bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+}
+
+.home-bg-1 {
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920');
+}
+
+.home-bg-2 {
+  background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920');
+  opacity: 0.15;
+}
+
+.home-bg-3 {
+  background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920');
+  opacity: 0.2;
 }
 
 .home-hero {
   text-align: center;
   margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
 }
 
 .home-logo {
   max-width: 200px;
   height: auto;
   margin-bottom: 16px;
+  filter: drop-shadow(0 4px 12px rgba(255, 140, 0, 0.3));
+}
+
+.home-tagline {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  margin: 8px 0 0 0;
+  font-style: italic;
 }
 
 .home-hero h1 {
@@ -40,6 +87,8 @@
   gap: 16px;
   width: 100%;
   max-width: 400px;
+  position: relative;
+  z-index: 2;
 }
 
 .home-form {

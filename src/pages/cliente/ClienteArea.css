@@ -180,3 +180,57 @@
   border-radius: 50%;
   object-fit: cover;
 }
+
+.platos-del-dia-banner {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(255, 215, 0, 0.08) 100%);
+  border-color: rgba(255, 140, 0, 0.4);
+}
+
+.platos-del-dia-banner h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  color: var(--cf-orange-light);
+}
+
+.platos-del-dia-banner p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.platos-del-dia-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.plato-dia-badge {
+  background: var(--cf-gradient);
+  color: var(--cf-black);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.mesa-login-form {
+  margin-bottom: 24px;
+}
+
+.mesa-login-form h3 {
+  margin: 0 0 8px 0;
+}
+
+.mesa-login-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.mesa-registro-link {
+  margin: 12px 0;
+  font-size: 0.9rem;
+}

@@ -7,7 +7,9 @@ import './HomePage.css';
 export default function HomePage() {
   const navigate = useNavigate();
   const { user, login: authLogin } = useAuth();
-  const [mode, setMode] = useState('lobby'); // lobby | login-cliente | login-admin | registro
+  const [mode, setMode] = useState(() => {
+    return sessionStorage.getItem('pendingMesa') ? 'registro' : 'lobby';
+  }); // lobby | login-cliente | login-admin | registro
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -28,7 +30,18 @@ export default function HomePage() {
       if (user.rol === 'admin' || user.rol === 'mesonera' || user.rol === 'punto_venta') {
         navigate('/admin/dashboard');
       } else {
-        navigate('/cliente');
+        const pending = sessionStorage.getItem('pendingMesa');
+        if (pending) {
+          try {
+            const { mesaId, mesaNumero } = JSON.parse(pending);
+            sessionStorage.removeItem('pendingMesa');
+            navigate('/cliente/menu', { state: { mesaId, mesaNumero } });
+          } catch {
+            navigate('/cliente');
+          }
+        } else {
+          navigate('/cliente');
+        }
       }
     }
   }, [user, navigate]);
@@ -98,10 +111,17 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
+      <div className="home-bg-images">
+        <div className="home-bg-overlay" />
+        <div className="home-bg-img home-bg-1" />
+        <div className="home-bg-img home-bg-2" />
+        <div className="home-bg-img home-bg-3" />
+      </div>
       <div className="home-hero">
         <img src="/logo.png" alt="Casa Fernando" className="home-logo" />
         <h1 className="cf-gradient-text">CASA FERNANDO</h1>
         <p className="home-subtitle">RESTO-BAR</p>
+        <p className="home-tagline">Cocina a la parrilla · Ambiente acogedor</p>
       </div>
 
       <div className="home-actions">
@@ -142,7 +162,7 @@ export default function HomePage() {
             <button type="submit" className="cf-btn" disabled={loading}>
               {loading ? 'Entrando...' : 'Entrar'}
             </button>
-            <button type="button" className="cf-btn-outline cf-btn" onClick={() => { setMode('lobby'); setError(''); }}>
+            <button type="button" className="cf-btn-outline cf-btn" onClick={() => { setMode('lobby'); setError(''); sessionStorage.removeItem('pendingMesa'); }}>
               Volver
             </button>
           </form>
@@ -239,7 +259,7 @@ export default function HomePage() {
             <button type="submit" className="cf-btn" disabled={loading}>
               {loading ? 'Registrando...' : 'Registrarse'}
             </button>
-            <button type="button" className="cf-btn-outline cf-btn" onClick={() => { setMode('lobby'); setError(''); }}>
+            <button type="button" className="cf-btn-outline cf-btn" onClick={() => { setMode('lobby'); setError(''); sessionStorage.removeItem('pendingMesa'); }}>
               Volver
             </button>
           </form>

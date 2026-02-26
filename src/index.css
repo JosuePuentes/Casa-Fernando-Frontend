@@ -39,6 +39,20 @@ a:hover {
   color: var(--cf-yellow);
 }
 
+.cf-link {
+  background: none;
+  border: none;
+  color: var(--cf-orange-light);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+}
+
+.cf-link:hover {
+  color: var(--cf-yellow);
+}
+
 button {
   font-family: var(--cf-font-body);
   cursor: pointer;
