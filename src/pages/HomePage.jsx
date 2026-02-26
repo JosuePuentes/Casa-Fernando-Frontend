@@ -178,13 +178,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        <section className="home-cta">
-          <p>¿Listo para ordenar?</p>
-          <button className="cf-btn cf-btn-large" onClick={() => navigate('/cliente')}>
-            Ver menú y ordenar
-          </button>
-        </section>
       </main>
 
       {modalAbierto && (
