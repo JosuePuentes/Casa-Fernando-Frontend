@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useWebSocketMesonera } from '../../hooks/useWebSocket';
 import { getNotificaciones, atenderNotificacion, getComandasMesonera, getMesas } from '../../services/api';
 import './MesoneraDashboard.css';
 
 export default function MesoneraDashboard() {
-  const navigate = useNavigate();
   const { user, logout } = useAuth();
   const token = localStorage.getItem('token');
   const [notifs, setNotifs] = useState([]);
   const [comandas, setComandas] = useState([]);
   const [mesas, setMesas] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const { connected } = useWebSocketMesonera(token, (msg) => {
     if (msg.type === 'notificacion_cliente') {

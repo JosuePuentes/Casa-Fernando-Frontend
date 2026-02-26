@@ -10,7 +10,7 @@ export default function AdminPlatos() {
     nombre: '', descripcion: '', precio: 0, categoria_id: null, imagen_url: '', disponible: true,
   });
   const [editing, setEditing] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([getPlatos(), getCategorias()])

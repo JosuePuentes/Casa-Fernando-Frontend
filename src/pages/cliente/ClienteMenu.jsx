@@ -13,10 +13,10 @@ export default function ClienteMenu() {
 
   const [platos, setPlatos] = useState([]);
   const [carrito, setCarrito] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
   const [enviando, setEnviando] = useState(false);
   const [error, setError] = useState('');
-  const [mesoneraAtendiendo, setMesoneraAtendiendo] = useState(null);
+  const [mesoneraAtendiendo] = useState(null);
   const [llamando, setLlamando] = useState(false);
 
   useEffect(() => {

@@ -43,7 +43,6 @@ function TicketPreview({ comanda, formaPago, onClose }) {
 
   const exportarPDF = () => {
     const doc = new jsPDF({ unit: 'mm', format: [80, 200] });
-    const lines = [];
     doc.setFontSize(14);
     doc.text('CASA FERNANDO', 40, 15, { align: 'center' });
     doc.setFontSize(10);

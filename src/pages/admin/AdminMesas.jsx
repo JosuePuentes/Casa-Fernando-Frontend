@@ -7,7 +7,7 @@ export default function AdminMesas() {
   const [items, setItems] = useState([]);
   const [form, setForm] = useState({ numero: '', capacidad: 4, ubicacion: '' });
   const [editing, setEditing] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [, setLoading] = useState(true);
 
   useEffect(() => {
     getMesasAdmin().then(({ data }) => setItems(data || [])).finally(() => setLoading(false));
