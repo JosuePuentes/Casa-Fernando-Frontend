@@ -30,10 +30,12 @@ export default function AdminDashboard() {
           <span className="admin-icon">🪑</span>
           <span>Mesas</span>
         </Link>
-        <Link to="/admin/empleados" className="admin-card cf-card">
-          <span className="admin-icon">👥</span>
-          <span>Empleados</span>
-        </Link>
+        {user?.rol === 'admin' && (
+          <Link to="/admin/empleados" className="admin-card cf-card">
+            <span className="admin-icon">👥</span>
+            <span>Usuarios</span>
+          </Link>
+        )}
         {(user?.rol === 'mesonera' || user?.rol === 'admin' || user?.rol === 'punto_venta') && (
           <Link to="/mesonera" className="admin-card cf-card">
             <span className="admin-icon">🔔</span>

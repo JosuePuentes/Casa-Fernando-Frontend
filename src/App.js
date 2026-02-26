@@ -24,6 +24,14 @@ function ProtectedAdmin({ children }) {
   return children;
 }
 
+function ProtectedAdminOnly({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return <div className="loading">Cargando...</div>;
+  if (!user) return <Navigate to="/" replace />;
+  if (user.rol !== 'admin') return <Navigate to="/admin/dashboard" replace />;
+  return children;
+}
+
 export default function App() {
   return (
     <AuthProvider>
@@ -77,9 +85,9 @@ export default function App() {
           <Route
             path="/admin/empleados"
             element={
-              <ProtectedAdmin>
+              <ProtectedAdminOnly>
                 <AdminEmpleados />
-              </ProtectedAdmin>
+              </ProtectedAdminOnly>
             }
           />
           <Route
