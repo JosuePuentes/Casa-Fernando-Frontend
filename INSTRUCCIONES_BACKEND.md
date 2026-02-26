@@ -18,8 +18,11 @@ Este documento describe lo que el backend debe soportar para que el frontend fun
 
 ### POST `/api/auth/register`
 Registro de **clientes** (público).
-- **Body:** `{ "email", "password", "nombre", "apellido", "cedula", "direccion", "telefono", "rol": "cliente" }`
+- **Body mínimo:** `{ "email", "password", "nombre", "apellido", "rol": "cliente" }`
+- **Body completo (envía el frontend):** `{ "email", "password", "nombre", "apellido", "cedula", "direccion", "telefono", "rol": "cliente" }`
+- **Flexibilidad del backend:** Acepta `firstName` o `name` además de `nombre`; `lastName` además de `apellido`; `rol` se normaliza a minúsculas (ej. "Cliente" → "cliente")
 - **Respuesta:** usuario creado o mensaje de éxito
+- **Errores:** DuplicateKeyError (email duplicado) debe devolver 400, no 500
 
 ### POST `/api/auth/register/admin`
 Crear usuarios del **personal** (requiere token admin).
@@ -114,7 +117,18 @@ El backend debe permitir peticiones desde:
 
 ---
 
-## 9. Rol `cocinero` (opcional)
+## 9. Depuración de errores 500
+
+Si el registro devuelve 500:
+1. **DevTools → Network** en el navegador
+2. Seleccionar la petición `register` con status 500
+3. En **Response** ver el campo `detail` con el mensaje real del error
+
+Ejemplo: `{"detail": "mensaje del error"}`
+
+Causas comunes: conexión MongoDB, validación de schema, email duplicado.
+
+## 10. Rol `cocinero` (opcional)
 
 El frontend permite crear usuarios con departamento "Cocinero". Si el backend no soporta este rol:
 - Añadir `cocinero` a los roles válidos en `POST /api/auth/register/admin`
