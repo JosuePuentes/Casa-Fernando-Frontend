@@ -9,7 +9,6 @@ export default function HomePage() {
   const { user, login: authLogin } = useAuth();
   const [modalAbierto, setModalAbierto] = useState(false);
   const [modalTab, setModalTab] = useState('login'); // 'login' | 'registro'
-  const [modoPersonal, setModoPersonal] = useState(false); // para login de empleados
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -61,11 +60,7 @@ export default function HomePage() {
     try {
       const { data } = await login(loginForm.email, loginForm.password);
       const esPersonal = ['admin', 'mesonera', 'punto_venta'].includes(data.user.rol);
-      if (modoPersonal && !esPersonal) {
-        setError('Use el acceso de cliente para clientes.');
-        return;
-      }
-      if (!modoPersonal && esPersonal) {
+      if (esPersonal) {
         setError('Use el acceso de personal para empleados.');
         return;
       }
@@ -120,7 +115,6 @@ export default function HomePage() {
 
   const abrirModal = (tab = 'login') => {
     setModalTab(tab);
-    setModoPersonal(false);
     setError('');
     setModalAbierto(true);
   };
@@ -216,13 +210,6 @@ export default function HomePage() {
                   onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                   required
                 />
-                <button
-                  type="button"
-                  className="cf-link home-modal-personal"
-                  onClick={() => setModoPersonal(!modoPersonal)}
-                >
-                  {modoPersonal ? '← Acceso cliente' : '¿Eres personal? Acceder'}
-                </button>
                 {error && <p className="home-error">{error}</p>}
                 <button type="submit" className="cf-btn" disabled={loading}>
                   {loading ? 'Entrando...' : 'Entrar'}

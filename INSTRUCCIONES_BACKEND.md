@@ -33,7 +33,14 @@ Crear usuarios del **personal** (requiere token admin).
 
 ---
 
-## 2. Roles y redirección
+## 2. Acceso del personal
+
+El personal (mesonera, cajero, admin, cocinero) inicia sesión en:
+- **URL:** `/acceso-personal`
+
+Los clientes inician sesión desde el modal en la página principal.
+
+## 3. Roles y redirección
 
 | Rol           | Portal al que va |
 |---------------|------------------|
@@ -47,7 +54,7 @@ Crear usuarios del **personal** (requiere token admin).
 
 ---
 
-## 3. Cliente (área pública / con login cliente)
+## 4. Cliente (área pública / con login cliente)
 
 ### GET `/api/cliente/menu`
 - Lista de platos por categoría
@@ -64,7 +71,7 @@ Crear usuarios del **personal** (requiere token admin).
 
 ---
 
-## 4. Mesas
+## 5. Mesas
 
 ### GET `/api/mesas`
 - Requiere auth (mesonera/admin/pos)
@@ -75,7 +82,7 @@ Crear usuarios del **personal** (requiere token admin).
 
 ---
 
-## 5. Mesonera / POS / Facturación
+## 6. Mesonera / POS / Facturación
 
 ### GET `/api/mesonera/comandas`
 ### POST `/api/mesonera/comanda` (mesa_id obligatorio)
@@ -90,7 +97,7 @@ Crear usuarios del **personal** (requiere token admin).
 
 ---
 
-## 6. WebSocket
+## 7. WebSocket
 
 ### `ws://host/api/ws/mesonera` (o `wss://` en producción)
 - Requiere token (query o header según implementación)
@@ -98,7 +105,7 @@ Crear usuarios del **personal** (requiere token admin).
 
 ---
 
-## 7. CORS
+## 8. CORS
 
 El backend debe permitir peticiones desde:
 - `http://localhost:3000` (desarrollo)
@@ -107,7 +114,7 @@ El backend debe permitir peticiones desde:
 
 ---
 
-## 8. Rol `cocinero` (opcional)
+## 9. Rol `cocinero` (opcional)
 
 El frontend permite crear usuarios con departamento "Cocinero". Si el backend no soporta este rol:
 - Añadir `cocinero` a los roles válidos en `POST /api/auth/register/admin`

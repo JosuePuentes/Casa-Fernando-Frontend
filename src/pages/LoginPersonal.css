@@ -1,0 +1,38 @@
+.login-personal {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--cf-black);
+}
+
+.login-personal-card {
+  max-width: 360px;
+  width: 100%;
+}
+
+.login-personal-logo {
+  max-width: 120px;
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.login-personal-card h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0 0 24px 0;
+}
+
+.login-personal-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-personal-back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}

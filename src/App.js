@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import HomePage from './pages/HomePage';
+import LoginPersonal from './pages/LoginPersonal';
 import ClienteTipoPedido from './pages/cliente/ClienteTipoPedido';
 import ClienteOnline from './pages/cliente/ClienteOnline';
 import ClienteSeleccionMesa from './pages/cliente/ClienteSeleccionMesa';
@@ -38,6 +39,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/acceso-personal" element={<LoginPersonal />} />
           <Route path="/cliente" element={<ClienteTipoPedido />} />
           <Route path="/cliente/online" element={<ClienteOnline />} />
           <Route path="/cliente/presencial" element={<ClienteSeleccionMesa />} />
